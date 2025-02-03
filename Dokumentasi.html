@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Jelajah Desa Bantarsari</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="forms.css">
+    <script src="scripts.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+
+        // google tag shit
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L8JNBD22PK');
+
+        // Dynamically load & show images with the extension included in the URL
+        function loadImagesFromFolder(folderPath, galleryId, customExtension, filter) {
+            const gallery = document.getElementById(galleryId);
+
+            fetch(folderPath)
+                .then(response => response.text())
+                .then(html => {
+                    // Parse the HTML directory listing
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+
+                    // Find all the image links and filter them based on the filter parameter (if provided)
+                    const imageLinks = doc.querySelectorAll('a[href$=".jpg"]');
+                    const filteredImageLinks = filter ?
+                        Array.from(imageLinks).filter(link => link.getAttribute("href").includes(filter)) :
+                        Array.from(imageLinks);
+
+                    filteredImageLinks.forEach(link => {
+                        const imageFile = link.getAttribute("href");
+                        const extension = customExtension || ".html";
+                        const htmlFile = imageFile.replace(".jpg", extension);
+                        const thumbnailSrc = folderPath + imageFile;
+                        const htmlPath = folderPath + htmlFile;
+
+                        const image = document.createElement("img");
+                        image.src = thumbnailSrc;
+
+                        const imageLink = document.createElement("a");
+                        imageLink.href = htmlPath;
+                        imageLink.target = "_blank";
+                        imageLink.appendChild(image);
+
+                        gallery.appendChild(imageLink);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching directory listing:", error);
+                });
+            }
+
+
+        // refresh the page based on the new url params
+        function updateQueryAndRefresh() {
+            const filterDropdown = document.getElementById("filterDropdown");
+            const selectedFilter = filterDropdown.value;
+            const url = window.location.href.split('?')[0];
+            const newURL = `${url}?filter=${selectedFilter}#landing`;
+            window.location.href = newURL;
+        }
+
+        // Function to get the URL query parameter by name
+        function getQueryParamByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to set the selected filter in the dropdown based on the query parameter
+        function setSelectedFilterFromQueryParam() {
+            const filterDropdown = document.getElementById("filterDropdown");
+            const filterParam = getQueryParamByName("filter");
+
+            if (filterParam) {
+                filterDropdown.value = filterParam;
+            }
+        }
+
+    </script>
+
+
+    <style>
+        :root {
+            --background-img: url('../_img/_backgrounds/background-write.png');
+        }
+
+        .section.wider>div {
+            max-width: 90%;
+        }
+
+        .portfolio img {
+            display: inline-flex;
+            margin: 20px;
+            width: 400px;
+            border-radius: 15px;
+            box-shadow: 20px 20px 25px -10px rgb(255, 255, 255, 23%);
+        }
+
+        .portfolio img:hover {
+            transform: scale(1.1);
+            transition: 0.5s ease;
+        }
+
+        h1, h2, p, .portfolio {
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            margin-top: 2.0em !important;
+        }
+
+        .portfolio h2:first-child {
+            margin-top: inherit !important;
+        }
+
+        .portfolio p {
+            margin-top: -1.0em;
+            margin-bottom: 3.0em;
+        }
+
+        .footerPen p {
+            text-align: inherit;
+        }
+
+        .menu {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        .menu a {
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: var(--text-color);
+            transition: 0.5s;
+        }
+
+        .menu ul li {
+            display: inline-block;
+        }
+
+        .menu ul li::after {
+            content: ' ∙';
+            padding: 4px;
+        }
+
+        .menu ul li:last-child::after {
+            display: none;
+        }
+
+        .filter {
+            margin: -20px 0 50px 0;
+
+        }
+
+        .filter label,
+        .filter select,
+        .filter button {
+            margin-right: 10px;
+            height: 30px;
+            border-radius: 4px;
+            font-family: inherit;
+            border: none;
+        }
+
+        .filter label {
+            color: var(--my-orange);
+            font-size: 0.9em;
+        }
+
+        .filter select {
+            width: 120px;
+            background-color: var(--background-color);
+        }
+
+        .filter button {
+            width: 60px;
+            background-color: var(--my-orange);
+            color: var(--background-color);
+            font-weight: bold;
+        }
+
+        .filter button:hover {
+            background-color: var(--my-blue);
+            transition: .5s ease;
+            cursor: pointer;
+        }
+
+
+        /* mobile response stuff */
+
+        @media (max-width: 480px) {
+
+            .menu ul li::after {
+                content: none;
+            }
+            .filter {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }
+
+            .filter label,
+            .filter select,
+            .filter button {
+                margin: 5px 0;
+                width: 140px;
+                display: block;
+            }
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <!-- opening section-->
+
+    <div class="section opening">
+        <div>
+            <h1>Dokumentasi Kegiatan<script>
+                    writeWithUrlParam("n", ", %s", "");
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- potfolio items -->
+
+    <div class="section portfolio reverse wider">
+        <div>
+		<div class="container">
+            <img src="Gambar (1).jpg" alt="Foto 1">
+            <img src="Gambar (2).jpg" alt="Foto 2">
+            <img src="Gambar (3).jpg" alt="Foto 3">
+			<img src="Gambar (4).jpg" alt="Foto 4">
+            <img src="Gambar (5).jpg" alt="Foto 5">
+            <img src="Gambar (6).jpg" alt="Foto 6">
+			<img src="Gambar (7).jpg" alt="Foto 7">
+            <img src="Gambar (8).jpg" alt="Foto 8">
+            <img src="Gambar (9).jpg" alt="Foto 9">
+			<img src="Gambar (10).jpg" alt="Foto 10">
+			<img src="Gambar (11).jpg" alt="Foto 11">
+            <img src="Gambar (12).jpg" alt="Foto 12">
+                </script>
+        </div>
+ 
+
+    <!-- include central footer -->
+
+    <div include-html="./_inc/footer.html"></div>
+    <script>
+        includeHTML();
+        removeURLParameter('n');
+    </script>
+
+
+</body></html>

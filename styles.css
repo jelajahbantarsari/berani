@@ -1,0 +1,1634 @@
+/* set fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Raleway:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+
+
+/* set variables */
+
+:root {
+    --background-color: #FBF8F1;
+    --text-color: #333333;
+    --my-orange: #cd8170;
+    --my-blue: #4697BD;
+    --my-yellow: #EDD392;
+    --my-green: #8EB69B;
+    --my-violet: #C3AEB5;
+    --grid-background-color: rgb(0, 0, 0, 0.05);
+    --grid-background-color-reverse: rgb(255, 255, 255, 0.05);
+    --link-color: var(--textcolor);
+    --hdr-font-family: 'Montserrat', sans-serif;
+    --body-font-family: 'Raleway', sans-serif;
+    --background-img: none;
+    --quote-img: url('../_img/quote-mark.png');
+    --body-font-size: 18px;
+    --font-weight-bold: 600;
+    --body-font-weight: 300;
+    --quote-invert-percent: 100%;
+    --quote-opacity-percent: 20%;
+    --body-width: 600px;
+    --blinker-speed: 1.5s;
+
+
+    --card-padding: 25px;
+    --card-margin-top: 50px;
+    --card-box-shadow: 3px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    --card-box-shadow-hover: 3px 8px 16px 0 rgba(0, 0, 0, 0.2);
+    --card-box-shadow-reverse: 3px 4px 8px 0px rgba(0, 0, 0, 0.5);
+    --card-box-shadow-hover-reverse: 3px 8px 16px 0 rgba(0, 0, 0, 0.5);
+    --card-background-color: var(--background-color);
+
+
+
+    /*    --footerPen-src: url('/_img/pen-footer.png');*/
+
+    /*
+    --hdr-font-family: 'Abril Fatface', cursive;
+    --body-font-family: 'Lato', sans-serif;
+    --grid-background-color: rgb(0, 0, 0, 0.05);
+    --grid-background-color: rgb(255, 255, 255, 0.05);
+    */
+}
+
+
+
+
+/* general formatting */
+
+body {
+    max-width: var(--body-width);
+    font-size: var(--body-font-size);
+    font-family: var(--body-font-family);
+    line-height: 1.9;
+    font-weight: var(--body-font-weight);
+    margin: 50px auto;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: var(--background-img);
+    background-position: left;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+strong,
+b {
+    font-weight: var(--font-weight-bold);
+}
+
+mark {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: 0 0.25em;
+    opacity: 80%;
+}
+
+highlight {
+    background-color: rgb(248, 214, 72, 70%);
+    padding: 2px 10px 2px 2px;
+    border-radius: 20% 55% 20% 44%;
+}
+
+highlight-green {
+    background-color: rgb(180, 255, 0, 50%);
+}
+
+.reverse highlight {
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+.bigLinks a {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+/*
+::selection {
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+*/
+
+a {
+    color: var(--my-orange);
+    target: new front;
+    font-weight: 500;
+}
+
+hr {
+    height: 1px;
+    background-color: var(--text-color);
+    border: none;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+li {
+    line-height: 200%;
+}
+
+/* indent and wrap bullets correctly */
+ul li,
+ol li {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-left: 0em;
+}
+
+ul {
+    /* tiny bit of indention */
+    padding-left: 1.5em;
+}
+
+img {
+    /* center all images */
+    display: block;
+    margin: 0 auto;
+}
+
+underline {
+    position: relative;
+    display: inline-block; /* Add this to make sure the underline works on wrapped lines */
+}
+
+underline:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: solid 3px var(--my-orange);
+    left: 0;
+    bottom: -10px;
+    border-radius: 50%;
+    height: 8px;
+}
+
+
+
+
+/* typography */
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text-color);
+    font-family: var(--hdr-font-family);
+    text-align: left;
+}
+
+h1 {
+    font-size: 4.167em;
+    line-height: 1.06;
+    padding: 70px 0px 0px 0px;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 3.0456em;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 1.667em;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+h4 {
+    font-size: 1.278em;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+
+/* section stuff */
+
+.section {
+    background-color: transparent;
+    color: var(--text-color);
+    /* span banner across entire width of the page : found this hack on the web */
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    margin-top: 100px;
+    margin-bottom: -100px;
+}
+
+.section > div {
+    max-width: var(--body-width);
+    margin: 0 auto;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+.section h1,
+.section h2,
+.section h3 {
+    color: var(--text-color);
+    margin: 0px 0px 30px 0px;
+    margin-bottom: 30px;
+    padding: 0px 0px 0px 0px;
+}
+
+.section h1 {
+    margin-bottom: 40px;
+}
+
+.section .centered,
+.section .centered h2,
+.section .centered h3,
+.section .centered h4,
+.section .centered p {
+    text-align: center;
+}
+
+.withBackgroundImg {
+    background-position: left;
+    background-size: cover;
+}
+
+
+.reverse {
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
+.reverse h1,
+.reverse h2,
+.reverse h3,
+.reverse h4 {
+    color: var(--background-color);
+}
+
+.reverse table,
+.reverse tr,
+.reverse td,
+.reverse th,
+.reverse thead {
+    color: var(--background-color);
+}
+
+
+.opening {
+    margin-top: -80px;
+}
+
+.opening h2 {
+    font-size: 1.667em;
+    margin-top: -20px;
+}
+
+
+.shadow {
+    box-shadow: 30px 30px 35px -20px rgb(0, 0, 0, 18%);
+}
+
+
+/*
+.opening h3 {
+    margin-top: -20px;
+}
+*/
+
+
+/*
+.header {
+    margin-top: -40px;
+    margin-bottom: 50px;
+}
+
+.header img {
+    width: 50%;
+}
+*/
+
+.bannerHeader {
+    background-color: var(--text-color);
+    text-align: center;
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    top: -50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bannerHeader img {
+    width: 280px;
+    position: absolute;
+    left: 30px;
+    top: 5px;
+    filter: invert() opacity(90%);
+}
+
+.bannerHeader navbar a.cta {
+    background-color: var(--my-orange);
+    padding: 0 10px 0 10px;
+    border-radius: 4px;
+}
+
+.bannerHeader navbar a:first-child {
+    padding-right: 15px;
+}
+
+.bannerHeader navbar a {
+    font-size: 1.0em;
+    padding-right: 20px;
+}
+
+.bannerHeader navbar a:hover {
+    color: var(--my-orange);
+    transition: 0.5s;
+}
+
+.bannerHeader navbar a.cta:hover {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.banner {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    text-align: center;
+    font-size: 1.222em;
+    font-weight: bold;
+
+    /* span banner across entire width of the page : found this hack on the web */
+    width: 100vw;
+    position: relative;
+    margin-left: -50vw;
+    left: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    margin-bottom: -100px;
+}
+
+.banner a {
+    font-weight: bold;
+}
+
+.banner h3,
+.banner h4 {
+    text-align: center;
+    color: var(--background-color);
+}
+
+/* limit text to body width w a div within a banner class */
+.banner div {
+    max-width: var(--body-width);
+    margin: 0 auto;
+}
+
+.strip {
+    margin-top: 0px;
+}
+
+
+
+/* blockquote */
+
+blockquote {
+    margin: 1rem 0px;
+    padding-left: 2ch;
+    margin-left: .5ch;
+    font-style: italic;
+    font-weight: 100;
+    /*    border-left: 3px solid var(--text-color);*/
+}
+
+blockquote em {
+    color: var(--text-color);
+}
+
+blockquote::before {
+    content: var(--quote-img);
+    filter: invert(var(--quote-invert-percent)) opacity(var(--quote-opacity-percent));
+    position: absolute;
+    margin-top: -30px;
+    margin-left: -20px;
+    z-index: -1;
+}
+
+/*
+blockquote::before {
+    content:open-quote;
+}
+
+blockquote::after {
+    content:close-quote;
+}
+*/
+
+/* accordion stuff */
+
+.accordion {
+    cursor: pointer;
+    transition: 0.4s;
+    font-style: normal;
+    font-weight: var(--font-weight-bold);
+    text-decoration: underline;
+    color: var(--my-orange);
+}
+
+.active,
+.accordion:hover {}
+
+.panel {
+    display: none;
+    overflow: hidden;
+    margin-top: -30px;
+}
+
+.accordion:after {
+    content: '\002B';
+    font-weight: var(--font-weight-bold);
+    font-style: normal;
+    float: left;
+    margin-right: 5px;
+}
+
+.active:after {
+    content: '\2212';
+}
+
+
+
+/* footer stuff */
+
+.footer * {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.footer .container {
+    max-width: 100%;
+    margin: auto;
+}
+
+.footer .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .col {
+    width: 33%;
+    padding: 0 15px;
+}
+
+.footer .col h4 {
+    font-size: 18px;
+    color: var(--background-color);
+    text-transform: lowercase;
+    margin-bottom: 35px;
+    font-weight: 600;
+    position: relative;
+    font-family: inherit;
+}
+
+.footer .col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: var(--my-orange);
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer .col ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li {
+    list-style: none;
+}
+
+.footer .col li a {
+    font-size: 16px;
+    text-transform: lowercase;
+    text-decoration: none;
+    font-weight: 300;
+    color: var(--background-color);
+    transition: all 0.3s ease;
+    line-height: 30px;
+}
+
+.footer .col ul li a:hover {
+    color: var(--my-orange);
+    padding-left: 8px;
+}
+
+.footer #bookme {
+    background-color: var(--my-orange);
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+
+.footer #bookme:hover {
+    background-color: var(--background-color);
+    transition: .5s;
+}
+
+.footer .final img {
+    filter: invert();
+    width: 180px;
+    opacity: 70%;
+}
+
+.footer .final p {
+    font-size: .77em;
+    font-style: italic;
+    line-height: 1.5em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    opacity: 70%;
+}
+
+.footer .final.grid {
+    margin: -20px 0 -20px 0;
+}
+
+.footer .final p:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
+}
+
+.footer hr {
+    opacity: 20%;
+    width: 100%;
+    background-color: var(--background-color);
+}
+
+.footer hr.hr1  {
+    margin: 30px 0 30px 0;
+}
+
+.footer hr.hr2  {
+    margin: 50px 0 40px 0;
+}
+
+.footer .social {
+    font-size: 30px;
+    filter: opacity(70%);
+    margin-top: 40px;
+
+    /* lines below to horizontally center content   */
+    display: flex;
+    justify-content: center;
+}
+
+.footer .social .fa-slash {
+    color: tomato;
+    font-size: .9em;
+}
+
+.footer .social .fa-stack {
+    margin: -12px;
+}
+
+@media (max-width: 480px) {
+    .footer .social,
+    .footer .final.grid,
+    .footer hr {
+        display: none;
+        }
+    }
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer .col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer .col {
+        width: 100%;
+    }
+}
+
+
+.footerLine {
+    margin-top: 100px;
+    margin-bottom: -260px;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.footerPen {
+    margin-top: 260px;
+}
+
+.footerPen div {
+    font-family: 'Dokdo', cursive;
+    float: left;
+    margin-top: 0px;
+    box-sizing: border-box;
+}
+
+.footerPen p {
+    margin-top: 30px;
+}
+
+.footerPen p:nth-child(1) {
+    font-size: 2.889em;
+    line-height: .9;
+}
+
+.footerPen p:nth-child(2) {
+    margin-top: -40px;
+    font-size: 1.778em;
+    line-height: .9;
+}
+
+.footerPen div:nth-child(2) {
+    width: 75%;
+}
+
+.footerPen img {
+    margin-right: 50px;
+}
+
+/* clear floats after the columns */
+.footerPen::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* everything hero */
+
+.hero {
+    margin-top: 40px;
+    margin-bottom: -100px;
+}
+
+.heroBanner {
+    display: flex;
+    padding: 20px 0 20px 0 !important;
+    text-transform: uppercase;
+}
+
+.heroBanner div {
+    text-align: center;
+    font-weight: bold;
+    margin: auto !important;
+    padding: 0 3px 0 3px !important;
+    /*    font-size: 1.0em;*/
+    line-height: 1.4em;
+}
+
+.heroBanner div:nth-child(even) {
+    font-size: 1.667em;
+}
+
+.heroBanner div:nth-child(even)::before {
+    content: '\2022';
+}
+
+/* hero banner with images */
+.heroBannerEx {
+    padding: 0px !important;
+}
+
+.heroBannerEx div {
+    text-transform: uppercase;
+}
+
+.heroBannerEx .grid i {
+    font-size: 35px;
+}
+
+.heroBannerEx .grid {
+    font-weight: bold;
+    line-height: 1.3em;
+    padding: 0 10px 0 10px;
+}
+
+.heroBannerEx .grid div:nth-child(1) {
+            color: var(--my-orange);
+        }
+
+        .heroBannerEx .grid div:nth-child(2) {
+            color: var(--my-green);
+        }
+
+        .heroBannerEx .grid div:nth-child(3) {
+            color: var(--my-yellow);
+        }
+
+
+
+
+.steps h3 {
+    margin: 30px 0px -15px 0px;
+}
+
+
+/* table stuff */
+
+.priceTable {
+    width: 100%;
+}
+
+.priceTable td:first-child {
+    text-align: left;
+    padding-left: 17px;
+}
+
+.priceTable td:last-child {
+    padding-right: 10px;
+}
+
+.priceTable td,
+.priceTable th {
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+
+.priceTable td:nth-child(3),
+.priceTable th:nth-child(3) {
+    background-color: var(--grid-background-color);
+    font-size: 1.222em;
+}
+
+.priceTable.reverse td:nth-child(3),
+.priceTable.reverse th:nth-child(3) {
+    background-color: var(--grid-background-color-reverse);
+    font-size: 1.222em;
+}
+
+.priceTable tr.price span {
+    font-size: .6em;
+}
+
+.priceTable .worth {
+    color: chartreuse;
+    font-style: italic;
+    font-size: 0.9em;
+    text-align: center !important;
+    vertical-align: bottom !important;
+}
+
+
+table {
+    text-align: left;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.card th {
+    padding-top: 20px;
+}
+
+tr {
+    color: var(--text-color);
+    font-size: 0.944em;
+    line-height: 170%;
+    font-weight: lighter;
+    vertical-align: top;
+    /*border-bottom: solid .5px #DCDCDC;*/
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color: var(--grid-background-color);
+}
+
+.reverse tr:nth-child(even) {
+    background-color: var(--grid-background-color-reverse)
+}
+
+td {
+    padding: 10px 10px 10px 0px;
+}
+
+th {
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 1.000em;
+}
+
+td:last-child {
+    padding-right: 10px;
+}
+
+td:first-child,
+th:first-child {
+    padding-left: 10px;
+}
+
+.examplesTable a {
+    font-weight: var(--font-weight-bold);
+    font-size: 1em;
+}
+
+.examplesTable td:first-child {
+    padding-left: 10px;
+}
+
+.examplesTable td:last-child {
+    padding-right: 10px;
+}
+
+
+/* formatting for examples grid (vs tables) */
+
+.examplesGrid.grid {
+    grid-template-columns: 50% auto;
+    text-align: left;
+}
+
+.examplesGrid a {
+    font-weight: var(--font-weight-bold);
+    font-size: 1.1em;
+}
+
+.examplesGrid div:nth-child(odd) {
+    padding-left: 5px;
+}
+
+.examplesGrid div:nth-child(even) {
+    padding-right: 0px;
+}
+
+.examplesGrid div:nth-child(4n+1),
+.examplesGrid div:nth-child(4n+2) {
+    background-color: var(--grid-background-color);
+}
+
+.reverse .examplesGrid div:nth-child(4n+1),
+.reverse .examplesGrid div:nth-child(4n+2) {
+    background-color: var(--grid-background-color-reverse);
+}
+
+.examplesGrid.withPics.grid img {
+    width: 250px;
+    height: 200px;
+    margin-bottom: 15px;
+    /*    margin-left: 0;*/
+    border-radius: 5%;
+}
+
+.examplesGrid.withPics.grid img:hover {
+    box-shadow: var(--card-box-shadow-hover);
+}
+
+.examplesGrid.withPics.grid div {
+    margin-bottom: 10px;
+    text-align: center !important;
+}
+
+.examplesGrid.withPics div:nth-child(odd),
+.examplesGrid.withPics div:nth-child(even) {
+    background-color: inherit;
+    text-align: center;
+}
+
+.checkBullets li,
+li.checkBullet {
+    list-style-image: url(../_img/bullet-check-dark.png);
+}
+
+.reverse .checkBullets li {
+    list-style-image: url(../_img/bullet-check-light.png);
+}
+
+.checkBullets.green li {
+    list-style-image: url(../_img/bullet-check.png);
+}
+
+
+.taskBullets li,
+li.taskBullet {
+    list-style-image: url(../_img/bullet-task.png);
+}
+
+.reverse .taskBullets li {
+    list-style-image: url(../_img/bullet-task-light.png);
+}
+
+.xBullets li,
+li.xBullet {
+    list-style-image: url(../_img/bullet-xmark.png);
+}
+
+.xBullets.dark li {
+    list-style-image: url(../_img/bullet-xmark-dark.png);
+}
+
+
+
+
+/* yes-no grid stuff  */
+
+.grid.yes-no div:first-child li {
+    list-style-image: url(../_img/bullet-check.png);
+}
+
+.grid.yes-no div:last-child {
+    list-style-image: url(../_img/bullet-xmark.png);
+}
+
+.grid.yes-no.switch div:first-child li {
+    list-style-image: url(../_img/bullet-xmark.png);
+}
+
+.grid.yes-no.switch div:last-child {
+    list-style-image: url(../_img/bullet-check.png);
+}
+
+.grid.yes-no {
+    text-align: left;
+}
+
+.grid.yes-no p {
+    text-align: center;
+}
+
+.grid.yes-no div i {
+    font-size: 3em;
+}
+
+.grid.yes-no div:first-child p,
+.grid.yes-no div:first-child i {
+    color: darkseagreen;
+}
+
+.grid.yes-no div:last-child p,
+.grid.yes-no div:last-child i {
+    color: indianred;
+}
+
+.grid.yes-no.switch div:first-child p,
+.grid.yes-no.switch div:first-child i {
+    color: indianred;
+}
+
+.grid.yes-no.switch div:last-child p,
+.grid.yes-no.switch div:last-child i {
+    color: darkseagreen;
+}
+
+
+/* button stuff */
+
+.button {
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1.2;
+    font-weight: 900;
+    font-family: var(--body-font-family);
+    margin: 20px 0px 20px 0px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: var(--background-color);
+    background-color: var(--my-orange);
+}
+
+.button:hover,
+.button.alternative:hover {
+    background-color: var(--my-blue);
+    filter: grayscale(50%);
+    transition: 0.5s;
+/*    transform: scale(1.05);*/
+}
+
+.button.alternative {
+    background-color: var(--text-color);
+}
+
+
+/* testimonial stuff */
+
+.testimonial {
+    font-style: italic;
+    text-align: center;
+}
+
+.testimonial p:nth-child(2) {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.testimonial::before {
+    content: var(--quote-img);
+    filter: invert(var(--quote-invert-percent)) opacity(var(--quote-opacity-percent));
+    margin-top: 100px;
+    margin-left: -300px;
+    position: absolute;
+    float: right;
+    z-index: 0;
+}
+
+
+
+/* grid stuff */
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 30px;
+    text-align: center;
+    max-width: 100%;
+}
+
+.grid div {
+    padding-right: 18px;
+    margin-top: 20px !important;
+}
+
+.grid div:last-child {
+    padding-right: 0;
+}
+
+.grid .flexCol {
+    margin-top: 0px;
+}
+
+.grid h4 {
+    text-align: center;
+}
+
+.headerCenter .grid h3 {
+    text-align: center;
+}
+
+
+/* handle all fontawesome icons */
+
+.grid .fa {
+    margin-bottom: 0px;
+    color: var(--text-color);
+    font-size: 70px;
+}
+
+.grid .circle {
+    border-radius: 1em;
+}
+
+.grid .square {
+    border-radius: .4em;
+}
+
+.grid .outline {
+    border: .07em solid var(--text-color);
+    border-radius: 1em;
+    padding: .16em;
+    font-size: 3.5em;
+}
+
+.grid .circle,
+.grid .square {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: .18em;
+    font-size: 3.5em;
+}
+
+.reverse .fa {
+    color: var(--background-color);
+}
+
+.reverse .outline {
+    border: .07em solid var(--background-color);
+}
+
+.reverse .square,
+.reverse .circle {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.fa-num {
+    font-size: 65px !important;
+    padding: 11px 5px 11px 5px !important;
+}
+
+
+
+/* flex column stuff */
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.flexColLeft {
+    text-align: left;
+}
+
+.flexColRight {
+    text-align: right;
+}
+
+.flexCol h3,
+.flexCol h4 {
+    margin-bottom: -10px;
+}
+
+.forMobile {
+    display: none;
+}
+
+
+/* tabbed metaphor stuff */
+
+.tablinks.active::after {
+    content: "";
+}
+
+.tablinks.active {
+    color: var(--text-color);
+    border: solid 1px var(--text-color);
+    border-bottom: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.tablinks:hover {
+    box-shadow: 3px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.tablinks {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: 6px 20px 6px 6px;
+    margin: 5px -2px 0 0;
+    font-size: .9em;
+    text-align: left;
+    border: none;
+    border-radius: 4%;
+
+}
+
+/* add margin for last line of tabs (not sure why last-child doesn't work for this) */
+.tablinks:last-of-type {
+    margin-bottom: 30px;
+}
+
+.reverse .tablinks {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.reverse .tablinks.active {
+    background-color: transparent;
+    color: var(--test-color);
+    border: solid 1px var(--background-color);
+    border-bottom: none;
+}
+
+.reverse .tablinks:hover {
+    box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.2);
+}
+
+
+/* blinking stuff */
+
+
+.blink {
+    animation: blinker var(--blinker-speed) linear infinite;
+}
+
+.blink {
+    animation-iteration-count: 3;
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 0;
+    }
+}
+
+
+/* tooltip stuff */
+
+tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+tooltip tooltipText {
+    visibility: hidden;
+    width: 300px;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: 1px solid var(--background-color);
+    text-align: center;
+    font-size: .9em;
+    padding: 18px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.reverse tooltipText {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+
+}
+
+tooltip:hover tooltipText {
+    visibility: visible;
+}
+
+tooltip::after {
+    font-size: 1.2em;
+    content: "ℹ";
+}
+
+/*
+use this to hide tooltip icon from above
+tooltip::after {
+    content: '\3164';
+}
+*/
+
+/* download guides stuff */
+
+.download img {
+    max-width: 100%;
+    border-radius: 3%;
+    box-shadow: 5px 5px 7px black;
+}
+
+.download .button {
+    margin: 0 auto;
+    margin-top: 2.0em;
+    display: block;
+    max-width: 40%;
+
+}
+
+.download.section,
+.download.section h2,
+.download.section h3,
+.download.section h4 {
+    text-align: center;
+}
+
+
+/* card stuff */
+
+.card {
+    box-shadow: var(--card-box-shadow);
+    transition: 0.3s;
+    padding: var(--card-padding);
+    /* width: 70%;*/
+    margin-top: var(--card-margin-top);
+    background-color: var(--card-background-color);
+    border-radius: 15px;
+}
+
+.card:hover {
+    box-shadow: var(--card-box-shadow-hover);
+}
+
+.card.reverse {
+    box-shadow: var(--card-box-shadow-reverse);
+    background-color: var(--text-color);
+}
+
+.card.reverse:hover {
+    box-shadow: var(--card-box-shadow-hover-reverse);
+}
+
+.card.transparent {
+    background-color: transparent;
+}
+
+
+/* index cards stuff */
+
+.card.index {
+    background-image: repeating-linear-gradient(to bottom, rgb(0, 0, 0, 17%), rgb(0, 0, 0, 17%) 1px, transparent 1px, transparent 0.2in);
+    font-family: 'Covered By Your Grace', cursive;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 30px 30px 35px -20px rgb(0, 0, 0, 90%);
+}
+
+.card.index p {
+    font-size: 1.5em;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.1em;
+}
+
+.card.index h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 2.6em;
+    line-height: 1.0em;
+}
+
+.card.index li {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+.card.index .note {
+    font-size: 1.2em;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.0em;
+    opacity: 50%;
+    margin-top: 30px;
+}
+
+.card.index b,
+.card.index strong {
+    box-shadow: inset 0px -2.0em 0 rgba(0, 0, 0, .09);
+    padding-right: 10px;
+    color: inherit;
+}
+
+.card.attention {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-top: -100px;
+    padding: 20px;
+    font-family: "Special Elite";
+    font-size: 1.13em;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(255,255,255,1) -30%, rgba(45,45,45) 66%);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+    color: var(--background-color);
+}
+
+.card.attention.inline {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card.attention h3 {
+    font-family: "Special Elite";
+    text-align: center;
+    font-size: 1.9em;
+    margin-bottom: -10px;
+    color: inherit;
+}
+
+.card.attention h3::before {
+    content: "\f256";
+    margin-right: 12px;
+    font-family: "Font Awesome 5 Free";
+}
+
+.card.attention::before {
+    content: '';
+    position: absolute;
+    top: 99%;
+    left: 75%;
+    border-width: 56px 35px 0 0px;
+    border-style: solid;
+    border-color: rgb(45, 45, 45, 85%) transparent;
+}
+
+.card.attention p {
+    line-height: 1.3em;
+}
+
+.card.attention:hover {
+    transform: scale(1.05);
+}
+
+.card.attention.light {
+    background: linear-gradient(90deg, rgba(51,51,51,1) -10%, rgba(255,255,255,1) 33%);
+    color: var(--text-color);
+}
+
+.card.attention.light::before {
+    border-color: rgb(255, 255, 255) transparent;
+}
+
+.card.attention.color {
+    background: linear-gradient(90deg, rgba(51,51,51, 1) -30%, rgba(205,129,112,1) 65%);
+}
+
+.card.attention.color::before {
+    border-color: var(--my-orange) transparent;
+}
+
+
+/* post-it notes stuff */
+
+.post-it {
+    width: 250px;
+    height: auto;
+    background-color: #FFFFE0;
+    border-radius: 3px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    position: relative;
+    padding: 20px;
+    margin: 20px;
+    transform: rotate(1deg);
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 23px;
+}
+
+.post-it:hover {
+    transform: rotate(0deg);
+}
+
+.post-it-content p {
+    margin: 13px 0;
+    line-height: 1.2;
+}
+
+.post-it-content h3 {
+    font-family: 'Covered By Your Grace', cursive;
+    line-height: 1.0;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+
+.tablinks {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.tabcontent .button {
+    font-size: inherit;
+}
+
+.tabcontent i {
+    font-size: 4.0em;
+}
+
+.tabcontent img {
+    width: 100%;
+}
+
+img.portfolio {
+    width: 500px;
+    filter: grayscale(40%);
+    border-radius: 20px;
+    box-shadow: 30px 30px 35px -20px rgb(0, 0, 0, 70%);
+}
+
+
+/* responsive modes */
+
+
+@media (min-width: 980px) {
+
+    /* default hamburger menu to off */
+    nav {
+        display: none;
+    }
+}
+
+
+@media (max-width: 980px) {
+
+    /*  hide main menu (leave logo as is) */
+    navbar p:nth-child(1) {
+        display: none;
+    }
+
+    /* make room for hamburger menu */
+    .bannerHeader img {
+        left: 100px;
+    }
+
+    /* show hamburger menu   */
+    nav {
+        display: block;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+
+    body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background-image: none;
+    }
+
+    body,
+    .section div {
+        padding-left: 21px !important;
+        padding-right: 21px !important;
+        max-width: 330px;
+    }
+
+    h1 {
+        font-size: 2.122em !important;
+        line-height: .9;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        line-height: .9;
+    }
+
+    h3 {
+        font-size: 1.3em;
+        line-height: 1.3;
+    }
+
+    .button,
+    .alternateBtn,
+    .reverseBtn {
+        font-size: 0.85em;
+    }
+
+    img {
+        max-width: 70%;
+    }
+
+    .footerPen img {
+        display: none;
+    }
+
+
+    .footerPen p:nth-child(1) {
+        font-size: 2.4em;
+        line-height: .9;
+    }
+
+    /* stack the hero banner items */
+    .heroBanner {
+        display: block;
+        float: none;
+        max-width: 100%;
+        font-size: 0.8em;
+    }
+
+    /* stack all grid columns */
+    .grid {
+        grid-template-columns: auto !important;
+    }
+
+    .examplesGrid div:nth-child(odd) {
+        background-color: var(--grid-background-color) !important;
+    }
+
+    .examplesGrid div:nth-child(even) {
+        background-color: transparent !important;
+    }
+
+    .examplesGrid.withPics.grid div {
+        background-color: transparent !important;
+    }
+
+    .examplesGrid.withPics.grid img {
+        max-width: 100%;
+    }
+
+
+    /* stack items in the gridCol class */
+    .flexCol {
+        display: block;
+        margin: auto;
+    }
+
+    .forDesktop {
+        display: none;
+    }
+
+    .forMobile {
+        display: grid;
+    }
+
+    tooltip {
+        visibility: hidden;
+    }
+
+}
