@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>toddsgotapen &#45; stop rambling. start persuading</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/71d7882a48.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+     <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JNBD22PK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L8JNBD22PK');
+    </script>
+
+
+    <style>
+
+        :root {
+            --background-img: url('../_img/_backgrounds/background-tips.png');
+            --gradient-percent: .025;
+        }
+
+        table td {
+            padding: 0px !important;
+        }
+
+        /* ********* */
+        /* make the anchored tip obvious to viewer */
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blink {
+            animation: blink .8s ease-in-out 3;
+        }
+        /* ********* */
+
+
+        .section.wider > div {
+            max-width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section.hero {
+            border-bottom: solid 1px rgb(248, 245, 238, 60%);
+        }
+
+        .section.opening img {
+            width: 30%;
+            opacity: 17%;
+            border-radius: 30px;
+            position: absolute;
+            top: 130px;
+            right: 0px;
+            transform: rotate(10deg);
+        }
+
+        .post-its {
+            background-color: var(--text-color);
+
+            /*  css gradient */
+            background-size: 50px 50px;
+            background-image: -webkit-linear-gradient(rgba(255, 255, 255, var(--gradient-percent)) 50%, transparent 50%, transparent);
+            background-image: -moz-linear-gradient(rgba(255, 255, 255, var(--gradient-percent)) 50%, transparent 50%, transparent);
+            background-image: -ms-linear-gradient(rgba(255, 255, 255, var(--gradient-percent)) 50%, transparent 50%, transparent);
+            background-image: -o-linear-gradient(rgba(255, 255, 255, var(--gradient-percent)) 50%, transparent 50%, transparent);
+            background-image: linear-gradient(rgba(255, 255, 255, var(--gradient-percent)) 50%, transparent 50%, transparent);
+        }
+
+        .post-it {
+            display: inline-flex;
+            border-radius: 10px;
+            transform: rotate(0deg);
+            width: 350px;
+            vertical-align: middle;
+            box-shadow: 5px 5px 3px black;
+            background-color: var(--randomColor);
+        }
+
+        .post-it h3 {
+            margin: 20px 0 40px 0;
+        }
+
+        .post-it:hover {
+            transform: scale(1.1) !important;
+            transition: all 0.3s ease;
+            border: solid 1px rgb(0,0,0,70%);
+            z-index: 99;
+        }
+
+        .post-it:nth-child(3n+1) {
+            transform: rotate(1deg);
+        }
+
+        .post-it:nth-child(3n+2) {
+            transform: rotate(-1deg);
+        }
+
+        .post-it:nth-child(3n+3) {
+            transform: rotate(1deg);
+        }
+
+        .post-it .fa-link {
+            font-size: .6em;
+        }
+
+        .post-it.series {
+            border-top: 14px solid rgb(180, 255, 0, 70%);
+        }
+
+        .post-it.series h3 span {
+            font-size: .7em;
+            background-color: rgb(180, 255, 0, 50%);
+            padding: 2px 20px 2px 8px;
+            border-radius: 20% 55% 20% 44%;
+        }
+
+        .quoted {
+            font-size: .9em;
+            color: rgb(0,0,0,55%);
+            padding: 5px 0;
+        }
+
+        #tasklist small {
+            opacity: 50%;
+            font-size: .8em
+        }
+
+        ul li {
+            line-height: 1.2em;
+            list-style-type: square;
+        }
+
+        ul {
+            padding-left: 20px;
+            text-indent: 3px;
+        }
+
+        h3 small {
+            font-size: .6em;
+        }
+
+        small {
+            font-size: .8em;
+            color: rgb(0,0,0,55%);
+        }
+
+        hr {
+            margin: 30px 0;
+            opacity: 30%;
+            height: .1px;
+        }
+
+        .filter {
+            font-size: .7em;
+            font-weight: normal;
+            opacity: 80%;
+        }
+
+        .filter label {
+            margin-right: 10px;
+        }
+
+        .filter select {
+            border-radius: 5px;
+            padding: 5px;
+            font-size: .9em;
+            text-transform: capitalize;
+        }
+
+        div .filter {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        .footer {
+            display:flex;
+            justify-content: space-between;
+        }
+
+        .footer span {
+            display: none; /* turn off for now till i write more posts */
+            font-size: .8em;
+            opacity: 60%;
+        }
+
+        p s {
+            text-decoration-line: line-through;
+            text-decoration-color: rgb(0,0,0,40%);
+        }
+
+        keywords {
+            display: none;
+        }
+
+
+        @media (max-width: 480px) {
+            .post-it {
+                margin: 10px -20px;
+                transform: rotate(0deg) !important;
+            }
+            .post-it-content {
+                margin: 0 -25px;
+            }
+
+            .banner p {
+                display: none;
+            }
+        }
+
+    </style>
+
+
+    <script>
+        // array of colors to use randomly for each post-it
+        const colors = ['#C3E2C2', '#FFF7F1', '#f8e1a0', '#DAF5FF', '#FFC5C5'];
+    </script>
+
+</head>
+<body>
+
+    <!-- include central header -->
+
+    <div include-html="../_inc/header.html"></div>
+    <script>
+        includeHTML();
+    </script>
+
+
+    <!-- opening section-->
+
+    <div id="top" class="section opening">
+        <div>
+
+            <!-- header copy -->
+
+            <p><b>A DIFFERENT &amp; EDGY BLOG</b></p>
+            <h1>Muses on post-its</h1>
+            <h2><highlight>No-nonsense, non-mainstream tips</highlight> on clarity, freelancing &amp; living</h2>
+
+            <img src="./_img/post-its.png">
+        </div>
+    </div>
+
+
+
+    <!-- banner -->
+
+    <div class="section hero reverse">
+        <div class="heroBannerEx">
+            <div class="grid">
+                <div>
+                    <i class="fa-solid fa-sun"></i>
+                    <p>be clear</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <p>be real</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-face-grin-tongue"></i>
+                    <p>be bold</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- allow user to select filter based on keywords -->
+
+    <div class='banner'>
+        <div class='filter'>
+            <label>Select filter</label>
+            <select id="keywordDropdown">
+                <option value="all">All</option>
+            </select>
+            <div id="filteredItems"></div>
+        </div>
+    </div>
+
+
+    <!--  beginning of posts  -->
+    <!-- ************************************************************** -->
+    <!-- ************************************************************** -->
+    <!-- ************************************************************** -->
+
+    <div class='section wider post-its'>
+        <div>
+
+
+<!--
+             <div id='ID HERE' class='post-it'>
+                <div class='post-it-content'>
+                    <h3>post-it title here</h3>
+
+                    <p>some shit to say here</p>
+
+                    <ul class='checkBullets'>
+                        <li>a bullet</li>
+                        <li>another bullet</li>
+                        <li>yet another</li>
+                    </ul>
+
+                    <p><a href='URL HERE' target="_blank">An example</a></p>
+
+                    <div class='footer'>
+                        <a href='' onclick="copyLink('ID HERE')"><i class="fa-solid fa-link"></i></a>
+                        <span>feb 11, 2024</span>
+                    </div>
+
+                    <keywords></keywords>
+
+                </div>
+            </div>
+-->
+
+
+             <div id='inyourface' class='post-it'>
+                <div class='post-it-content'>
+                    <h3>In. Your. Face.</h3>
+
+                    <img src="./_img/_blog/inyourface.png">
+
+                    <p>Sound familiar...</p>
+
+                    <keywords>Apps</keywords>
+
+                </div>
+            </div>
+
+
+
+
+            <div id='whitespace' class='post-it'>
+                <div class='post-it-content'>
+                    <h3>Whitespace</h3>
+
+                    <img src="./_img/_blog/whitespace.png">
+
+                    <p>It's how you become more understood when writing.</p>
+
+                    <keywords>clarity</keywords>
+                </div>
+            </div>
+
+
+
+
+
+            <div id='partner-not' class='post-it'>
+                <div class='post-it-content'>
+                    <h3>"Partner", Shmartner</h3>
+                    <img src="./_img/_blog/partner.png">
+					
+                    <keywords>jargon</keywords>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div id='innovative-ugh' class='post-it'>
+                <div class='post-it-content'>
+                    <h3>"Innovative?" Really?</h3>
+                    <img src="./_img/_blog/innovative.png">
+
+                    <p>Sometimes prospects on a virtual sales call mention—they want to be seen as "innovative."</p>
+
+                    <keywords>jargon</keywords>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div id='jargon' class='post-it'>
+                <div class='post-it-content'>
+                    <h3>Why not use <underline>jargon</underline> in your writing?</h3>
+                    <img src="./_img/_blog/jargon.png">
+
+                    <p><highlight>Because...</highlight></p>
+
+                    <keywords>jargon</keywords>
+                </div>
+            </div>
+
+    <!-- include central footer -->
+
+    <div include-html="./_inc/footer.html"></div>
+    <script>
+        includeHTML();
+    </script>
+
+
+
+    <!-- color each post-it randomly -->
+    <script>
+        function randomColor(colorArray) {
+            return colorArray[Math.floor(Math.random() * colorArray.length)];
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const postIts = document.querySelectorAll('.post-it');
+            postIts.forEach(function(postIt) {
+                postIt.style.setProperty('--randomColor', randomColor(colors));
+            });
+        });
+    </script>
+
+
+    <!-- copy link to clipboard-->
+    <script>
+        function copyLink(text) {
+            var domain = window.location.hostname;
+            var input = document.createElement('input');
+            input.value = "https://" + domain + "/blog/#" + text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+//            alert("✓ Link copied to clipboard\n✓ Share this tip with others\n✓ " + input.value + "");
+            event.preventDefault(); // prevent page refresh
+            showMessage();
+        }
+
+        function showMessage() {
+            Swal.fire({
+            width: 300,
+            title: 'Link copied to clipboard',
+            text: 'Share this tip with others',
+            icon: 'success'
+                });
+        }
+    </script>
+
+
+
+    <!-- highlight tip when specified by id/anchor   -->
+    <script>
+        var anchor = window.location.hash.substring(1);
+        var dynamicDiv = document.getElementById(anchor);
+        if (dynamicDiv) {
+            dynamicDiv.classList.add('blink');
+        }
+    </script>
+
+
+
+    <!-- dynamically load dropdown filter w unique keywords -->
+     <script>
+         document.addEventListener("DOMContentLoaded", function() {
+             const keywordElements = document.querySelectorAll('keywords');
+             const uniqueKeywords = [];
+
+             keywordElements.forEach(element => {
+                 const keywords = element.textContent.split(',');
+                 keywords.forEach(keyword => {
+                     const trimmedKeyword = keyword.trim();
+                     if (!uniqueKeywords.includes(trimmedKeyword)) {
+                         uniqueKeywords.push(trimmedKeyword);
+                     }
+                 });
+             });
+
+             const dropdown = document.getElementById('keywordDropdown');
+
+             uniqueKeywords.forEach(keyword => {
+                 const option = document.createElement('option');
+                 option.text = keyword;
+                 dropdown.add(option);
+             });
+         });
+     </script>
+
+
+
+    <!-- refresh page based on selcted filter/keyword -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdown = document.getElementById('keywordDropdown');
+
+            // Extract query parameter value from URL on page load
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialKeyword = urlParams.get('f');
+
+            // Set the dropdown value to the initial keyword if present
+            if (initialKeyword) {
+                dropdown.value = initialKeyword;
+            }
+
+            dropdown.addEventListener('change', function() {
+                const selectedKeyword = this.value;
+                const baseUrl = window.location.href.split('?')[0];
+
+                if (selectedKeyword === 'all') {
+                    window.history.replaceState(null, null, baseUrl);
+                } else {
+                    urlParams.set('f', selectedKeyword);
+                    window.history.replaceState(null, null, `${baseUrl}?${urlParams.toString()}`);
+                }
+
+                filterItems(selectedKeyword);
+            });
+
+            function filterItems(selectedKeyword) {
+                const items = document.querySelectorAll('.post-it');
+
+                items.forEach(item => {
+                    const keywordsElement = item.querySelector('keywords');
+                    const keywordsString = keywordsElement ? keywordsElement.textContent.trim() : '';
+                    const itemKeywords = keywordsString.split(',').map(k => k.trim()); // Split and trim keywords
+
+                    if (!selectedKeyword || selectedKeyword === 'all' || itemKeywords.includes(selectedKeyword)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            // Call the filterItems function when the page loads to initially filter the items
+            filterItems(initialKeyword); // Filter based on initial keyword
+        });
+    </script>
+
+</body>
+
+</html>
